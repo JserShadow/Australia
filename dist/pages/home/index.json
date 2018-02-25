@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "layout-goods": "../../common/layout/goodsList"
+  }
+}

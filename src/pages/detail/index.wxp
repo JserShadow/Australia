@@ -1,0 +1,16 @@
+<template>
+  <view>Detail Page</view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '商品详情',
+    usingComponents: {}
+  },
+  data: {}
+}
+</script>
+
+<style>
+</style>

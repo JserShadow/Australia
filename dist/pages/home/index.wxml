@@ -1,0 +1,18 @@
+<view>
+    <layout-goods _pid="{{_pid}}"></layout-goods>
+
+    <!-- wxp template -->
+    <view>
+        <view class="index-hd">
+        </view>
+
+        <!-- <view class="index-bd">
+      Hello World
+    </view> -->
+
+        <view class="index-ft">
+            <view class="provider">Power By @Shadow</view>
+        </view>
+    </view>
+
+</view>

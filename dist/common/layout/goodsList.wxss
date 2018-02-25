@@ -1,0 +1,28 @@
+.item-container {
+    width: 100%;
+    height: 280rpx;
+    border-bottom: 1rpx solid #cccccc;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .item-img-container {
+    width: 200rpx;
+    height: 200rpx;
+    border: 1rpx solid #cccccc;
+  }
+  .item-info-container {
+    width: 450rpx;
+  }
+  .name {
+    color: black;
+    font-size: 55rpx;
+    font-family: 苹方;
+  }
+  .price {
+    color: #ff0000;
+    font-size: 46rpx;
+  }
+  .infomation {
+    color: #aaaaaa;
+  }

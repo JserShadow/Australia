@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "layout-goods": "../../common/layout/goodsList"
+  },
+  "navigationBarTitleText": "商品详情"
+}
