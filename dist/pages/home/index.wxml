@@ -1,5 +1,5 @@
 <view>
-    <layout-goods _pid="{{_pid}}"></layout-goods>
+    <layout-goods :goodsData="firstData" _pid="{{_pid}}"></layout-goods>
 
     <!-- wxp template -->
     <view>
@@ -14,5 +14,5 @@
             <view class="provider">Power By @Shadow</view>
         </view>
     </view>
-
+    <wxc-dialog class="wxc-dialog" title="获取数据失败" content="网络出错了,点击确定重试" confirm-text="确定" cancel-text="取消" bindconfirm="onConfirm" bindcancel="onCancel" _pid="{{_pid}}"></wxc-dialog>
 </view>

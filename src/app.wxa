@@ -1,10 +1,10 @@
 <template>
   <view>
-    <layout-goods></layout-goods>
+    <layout-goods :goodsData="firstData"></layout-goods>
 
     <!-- wxp template -->
     <page></page>
-
+    <wxc-dialog class="wxc-dialog" title="获取数据失败" content="网络出错了,点击确定重试" confirm-text="确定" cancel-text="取消" bindconfirm="onConfirm" bindcancel="onCancel"></wxc-dialog>
   </view>
 </template>
 
@@ -13,6 +13,7 @@
     config: {
       usingComponents: {
         'layout-goods': 'layout/goodsList',
+        'wxc-dialog': '@minui/wxc-dialog'
       },
       pages: [],
       window: {
@@ -26,9 +27,60 @@
         request: 10000
       }
     },
-    globalData: { },
+    globalData: {
+      firstData: []
+    },
+    methods: {
+      showDialog() {
+        let dialogComponent = this.selectComponent('.wxc-dialog')
+        dialogComponent && dialogComponent.show();
+      },
+      hideDialog() {
+        let dialogComponent = this.selectComponent('.wxc-dialog')
+        dialogComponent && dialogComponent.hide();
+      },
+      onConfirm () {
+        const that = this;
+        wx.request({
+          url: 'https://australia.hhp.im/getGoodsByCatagory',
+          method: 'POST',
+          data: {catagory: '化妆品'},
+          success: function (res) {
+            that.globalData.firstData = res.data;
+            console.log('success');
+          },
+          complete: function () {
+            console.log('completed');
+          },
+          fail: function () {
+            that.showDialog();
+          }
+        })
+      },
+      onCancel () {
+        this.hideDialog();
+      }
+    },
     onLaunch () { },
-    onShow () { },
+    onShow () {
+      const that = this;
+      console.log('start');
+      wx.request({
+        url: 'https://australia.hhp.im/getGoodsByCatagory',
+        method: 'POST',
+        data: {catagory: '化妆品'},
+        success: function (res) {
+          that.globalData.firstData = res.data;
+          console.log('success');
+        },
+        complete: function () {
+          console.log('completed');
+        },
+        fail: function () {
+          that.methods.showDialog();
+        }
+      })
+    },
     onHide () { }
   }
 </script>

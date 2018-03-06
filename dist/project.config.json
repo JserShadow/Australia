@@ -4,12 +4,6 @@
 	"libVersion": "1.7.1",
 	"appid": "wxf9550c97c15f55d7",
 	"projectname": "Australia",
-	"setting": {
-		"urlCheck": false,
-		"es6": false,
-		"postcss": false,
-		"minified": false,
-		"newFeature": true
-	},
+	"setting": {},
 	"condition": {}
 }

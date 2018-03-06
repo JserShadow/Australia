@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@minui/wxc-avatar": "^1.0.4",
+    "@minui/wxc-dialog": "^1.0.8",
     "@minui/wxc-elip": "^1.0.5",
     "@minui/wxc-price": "^1.0.8",
     "@minui/wxc-tab": "^1.0.7"
