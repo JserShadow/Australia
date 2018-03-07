@@ -16,12 +16,12 @@
         component-id="c1"
         label="{{tab.title}}"
       >
-        <view class="item-container">
-          <wxc-avatar class="item-img-container" mold="square" src=""></wxc-avatar>
+        <view class="item-container" wx:for="{{tab.content}}" wx:for-item="content" wx:key="{{content._id}}">
+          <wxc-avatar class="item-img-container" mold="square" src="{{content.imgs[0]}}"></wxc-avatar>
           <view class="item-info-container">
-            <view class="name"></view>
-            <wxc-price class="price" value="" decimal="small">price</wxc-price>
-            <wxc-elip class="infomation" line="2"></wxc-elip>
+            <view class="name">{{content.name}}</view>
+            <wxc-price class="price" value="{{content.price}}" decimal="small"></wxc-price>
+            <wxc-elip class="infomation" line="2">{{content.introduction}}</wxc-elip>
           </view>
         </view>
       </wxc-tab-panel>
@@ -49,6 +49,16 @@ export default {
   methods: {
     onClick: function(e) {
       console.log(`ComponentId:${e.detail.componentId},you selected:${e.detail.key}`);
+      let catagory;
+      const that = this;
+      wx.request({
+        url: 'https://australia.hhp.im/getGoodsByCatagory',
+        method: 'POST',
+        data: { catagory: that.data.tabs[e.detail.key].title },
+        success: function (res) {
+          that.data.tabs[e.detail.key].content = res.data;
+        }
+      })
     }
   },
 }
