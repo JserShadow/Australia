@@ -1,5 +1,6 @@
 <template>
-  <view>Detail Page</view>
+  <view>商品详情</view>
+  即将开发
 </template>
 
 <script>
