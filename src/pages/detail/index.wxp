@@ -1,6 +1,6 @@
 <template>
   <view>商品详情</view>
-  即将开发
+  <view>{{welcome}}</view>
 </template>
 
 <script>
@@ -9,7 +9,17 @@ export default {
     navigationBarTitleText: '商品详情',
     usingComponents: {}
   },
-  data: {}
+  data: {
+    welcome: ''
+  },
+  onLoad() {
+    wx.request({
+      url: 'https://australia.hhp.im',
+      success(res) {
+        this.welcome = res.data;
+      }
+    })
+  }
 }
 </script>
 
