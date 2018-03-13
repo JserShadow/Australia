@@ -15,7 +15,10 @@
         'layout-goods': 'layout/goodsList',
         'wxc-dialog': '@minui/wxc-dialog'
       },
-      pages: [],
+      pages: [
+        'pages/home/index',
+        'pages/detail/index'
+      ],
       window: {
         backgroundTextStyle: 'dark',
         backgroundColor: '#efefef',
@@ -42,7 +45,7 @@
       onConfirm () {
         const that = this;
         wx.request({
-          url: 'https://australia.hhp.im/getGoodsByCatagory',
+          url: 'http://localhost:7001/getGoodsByCatagory',
           method: 'POST',
           data: {catagory: '化妆品'},
           success: function (res) {
@@ -66,11 +69,12 @@
       const that = this;
       console.log('start');
       wx.request({
-        url: 'https://australia.hhp.im/getGoodsByCatagory',
+        url: 'http://localhost:7001/getGoodsByCatagory',
         method: 'POST',
         data: {catagory: '化妆品'},
         success: function (res) {
           that.globalData.firstData = res.data;
+          console.log(res.data);
           console.log('success');
         },
         complete: function () {

@@ -16,7 +16,7 @@
         component-id="c1"
         label="{{tab.title}}"
       >
-        <view class="item-container" wx:for="{{tab.content}}" wx:for-item="content" wx:key="{{content._id}}">
+        <view bindtap="getDetailPage(index,tab)" class="item-container" wx:for="{{tab.content}}" wx:for-item="content" wx:key="{{content._id}}">
           <wxc-avatar class="item-img-container" mold="square" src="{{content.imgs[0]}}"></wxc-avatar>
           <view class="item-info-container">
             <view class="name">{{content.name}}</view>
@@ -52,12 +52,18 @@ export default {
       let catagory;
       const that = this;
       wx.request({
-        url: 'https://australia.hhp.im/getGoodsByCatagory',
+        url: 'http://localhost:7001/getGoodsByCatagory',
         method: 'POST',
         data: { catagory: that.data.tabs[e.detail.key].title },
         success: function (res) {
           that.data.tabs[e.detail.key].content = res.data;
         }
+      })
+    },
+    getDetailPage(index,tab) {
+      const that = this;
+      wx.navigateTo({
+        url: '/pages/detail/index?id=' + tab.content[index]._id,
       })
     }
   },

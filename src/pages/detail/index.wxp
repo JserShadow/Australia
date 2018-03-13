@@ -1,22 +1,31 @@
 <template>
   <view>商品详情</view>
-  <view>{{welcome}}</view>
+  <image src="{{pageData.imgs[0]}}" class="detail-picture"></image>
+  <view>
+    <view>{{pageData.name}}</view>
+    <wxc-price value="{{pageData.price}}" decimal="small"></wxc-price>
+  </view>
+  <view>{{pageData.introduction}}</view>
 </template>
 
 <script>
 export default {
   config: {
     navigationBarTitleText: '商品详情',
-    usingComponents: {}
+    usingComponents: {
+      'wxc-price': '@minui/wxc-price',
+    }
   },
   data: {
-    welcome: ''
+    pageData: {}
   },
-  onLoad() {
+  onLoad(options) {
+    const that = this;
     wx.request({
-      url: 'https://australia.hhp.im',
+      url: 'http://localhost:7001/getSingleGoods',
+      data: { _id: options.id },
       success(res) {
-        this.welcome = res.data;
+        that.pageData = res.data;
       }
     })
   }
@@ -24,4 +33,7 @@ export default {
 </script>
 
 <style>
+  .detail-picture {
+    
+  }
 </style>
