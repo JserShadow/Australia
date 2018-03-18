@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "layout-goods": "../../common/layout/goodsList",
-    "wxc-dialog": "../../packages/@minui/wxc-dialog/dist/index",
-    "wxc-price": "../../packages/@minui/wxc-price/dist/index"
-  },
-  "navigationBarTitleText": "商品详情"
-}

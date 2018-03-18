@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "layout-goods": "../../common/layout/goodsList",
-    "wxc-dialog": "../../packages/@minui/wxc-dialog/dist/index"
-  }
-}
